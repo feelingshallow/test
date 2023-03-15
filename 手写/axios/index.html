@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="./server.js"></script> -->
+    <script src="./request.js"></script>
+    <script>
+        console.log(axios)
+        axios.get('http://127.0.0.1:5500',{data:'33333'})
+        axios({
+            url:'http://127.0.0.1:5500',
+            method:'get',
+            data:{a:555}
+        })
+    </script>
+</body>
+</html>

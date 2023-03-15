@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const get =function(args){
+            return args
+        }
+        Number.prototype.add =function(args){
+            return this + args
+        }
+        Number.prototype.sub =function(args){
+            return this - args
+        }
+        Number.prototype.mul =function(args){
+            return this * args
+        }
+        const res= get(0).add(1).sub(2).mul(3)
+        console.log(res)
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="bolck">
+            6666
+        </div>
+        <script>
+            let arr = [
+                {
+                    parentId: 123,
+                    nodeId: 23,
+                },
+                {
+                    parentId: 0,
+                    nodeId: 123,
+                },
+                {
+                    parentId: 23,
+                    nodeId: 999,
+                },
+                {
+                    parentId: 23,
+                    nodeId: 789,
+                },
+            ];
+            // function getTree(arr) {
+            //     let result = [];
+            //     getChildNode(arr, result, 0);
+            //     console.log(result);
+            //     return result;
+            // }
+
+            // function getChildNode(data, result, pid) {
+            //     for (item of data) {
+                    
+            //         if (item.parentId === pid) {
+            //             const newItem = { ...item, children: [] };
+            //             result.push(newItem);
+            //             getChildNode(data, newItem.children, item.nodeId);
+            //         }
+            //     }
+            // }
+            // getTree(arr);
+            
+            function getTree(arr) {
+                let result = [];
+
+            }
+
+            function getChildNode(data,result,pid) {
+                for (item of data) {
+                    if(item.parentId === pid) {
+                        item.children = []
+                        result.push(item)
+                        getChildNode(data,item.children,item.nodeId)
+                    }
+                }
+
+            }
+        </script>
+
+        
+    </body>
+</html>

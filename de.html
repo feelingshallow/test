@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a =''
+        getRawUrl = function(url) {
+            const dec = decodeURIComponent(url);
+        if(url == dec) {
+            console.log(dec)
+            a =dec
+        }else {
+            const newUrl = decodeURIComponent(url)
+            getRawUrl(newUrl);
+        }
+    }
+       getRawUrl("http%253A%252F%252F192.168.40.163%253A8087%252Fsetting")
+       console.log(a);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="increment">increment</button>
+        <p>{{count}}</p>{{msg}}
+        <button @click="onClick">log this</button>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.6.10/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                count: 1,
+            },
+            computed: {
+                msg() {
+                    console.log('update computed')
+                    const msg=  this.count > 3 ? 'nochange' :'change' 
+                    console.log('调研')
+                    return 'computed_' + msg
+                }
+            },
+            methods: {
+                increment() {
+                    this.count++;
+                },
+                onClick() {
+                    console.log(this)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

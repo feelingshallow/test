@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class EventEmitter {
+            constructor() {
+                this.events = {}
+            }
+
+            on(event,cb){
+                if(!this.events[event]) {
+                    this.events[event] = []
+                }
+                this.events[event].push(cb)
+                
+            }
+
+            emit(event,...args) {
+                const cbs = this.events[event]
+                if(!this.events[event]) {
+                    console.error('methods not registry')
+                    return;
+                }
+                console.log(this)
+     
+                for(let i =0; i<cbs.length; i++) {
+                    cbs[i].call(this,...args)
+                }
+                
+
+            }
+
+            once(event,callback) {
+                const func=(...args) =>{
+                    this.off(event,func);
+                    callback.apply(this,args)
+                }
+                this.on(event,func)
+            }
+
+            off(event) {
+                this.events[event] =null
+            }
+
+        }
+
+        const emiter = new EventEmitter()
+        emiter.on('click',function(){
+            console.log('123')
+        })
+
+        emiter.on('click',function() {
+            console.log('nmsl')
+        })
+
+        emiter.off('click')
+
+        emiter.emit('click')
+
+    </script>
+</body>
+</html>

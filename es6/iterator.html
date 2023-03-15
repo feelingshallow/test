@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let obj = {
+                a: 1,
+                b: 2,
+                c: 3,
+            };
+            // obj[Symbol.iterator] = function *() {
+            //     console.log(this)
+            //     let values = Object.values(this)
+            //     for(let i=0; i<values.length;i++) {
+
+            //         yield  values[i]
+            //     }
+            // }
+            obj[Symbol.iterator] = function () {
+                const self = this;
+                let index = 0;
+                return {
+                next() {
+                    if (index < 20) {
+                    return {
+                        value: index++,
+                        done: false
+                    };
+                    }
+                    return { value: undefined, done: true };
+                }
+            };
+        }
+
+            for (const iterator of obj) {
+                console.log(iterator);
+            }
+        </script>
+    </body>
+</html>

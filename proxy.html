@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            a:1,
+            b:{ c:2}
+        }
+        let outObj  = new Proxy(obj,{
+            get:function(des,a,b){
+                console.log(des,a,b)
+                return des[a]+'asdhksahk'
+
+            }
+        })
+
+        myGet = function(origin,path,errorShow) {
+            let target = new Proxy(origin,{
+                get(des,path){
+                    const arr = path.split('.')
+                    let obj= origin;
+                    for(i of arr) {
+                        obj =  getValue(obj,i)
+                    }
+                    return obj ?? errorShow
+                }
+            })
+            return target[path]
+        }
+
+      console.log( myGet(obj,'b.c'),'empty')  
+      function getValue( obj,key) {
+            return obj[key]
+      }
+
+    </script>
+</body>
+</html>

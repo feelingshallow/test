@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script lang="ts">
+        // nums: [8, 2, 6, 5, 4, 1, 3] ； target:7
+    //     function he (arr,target) {
+    //         let result = []
+    //         for(let i = 0; i<arr.length ;i++) {
+    //             if( arr.indexOf(target - arr[i] ) !== -1 ) {
+    //                 let index = arr.indexOf(target- arr[i] ) 
+    //                 return [arr[i],arr[index]]
+    //             }
+    //         }
+    //     }
+    //    console.log(  he([8, 2, 6, 5, 4, 1, 3],7))
+
+    function he2(arr,target) {
+        let map = new Map()
+        for (let i=0; i<arr.length; i++) [
+            if( map.has(target-arr[i])) {
+                   
+            } else {
+                map.set(arr[i],i)
+            }
+        ]
+    }
+
+    </script>
+</body>
+</html>

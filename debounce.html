@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>3333</button>
+    <script>
+        function debounce(fn, wait = 500) {
+            let timeOut;
+            return function() {
+                clearTimeout(timeOut)
+                timeOut = setTimeout(fn,wait)
+            }
+
+        }
+
+        function throttle(fn,wait) {
+            let last = 0;
+
+            return function() {
+                let now = Date.now()
+                if(last -now >=0) {
+
+                    fn()
+                }
+                last = now;
+            }
+        }
+
+        const button =  document.getElementsByTagName('button');
+        
+        function myClick() {
+            console.log(2222)
+        }
+
+        button[0].onclick = debounce(myClick) ;
+    </script>
+</body>
+</html>
